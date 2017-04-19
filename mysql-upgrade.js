@@ -39,7 +39,7 @@ async function createVersionTable() {
 	query.push('INSERT INTO ' + db.connection.escapeId(tableName) + ' SET `version` = 0;');
 
 	let result = await db.query(query.join(' '));
-	return result[0];
+	return result[0][0];
 }
 
 // Gets the current database version
@@ -51,14 +51,13 @@ async function getVersion() {
 	let result;
 	try {
 		result = await db.query(query);
-		result = result[0];
 	} catch(err) {
 		if(err && err.code === 'ER_NO_SUCH_TABLE') return -1;
 		throw err;
 	}
 
 	if(result[0].length === 0) return reject(new Error('No version record found in table ' + tableName));
-	return parseInt(result[0].version);
+	return parseInt(result[0][0].version);
 }
 
 // Starts the upgrade
@@ -85,7 +84,7 @@ function upgradeStep(currentVersion, files, callback) {
 		let query = sql.toString();
 		query += '\nUPDATE ' + db.connection.escapeId(tableName) + ' SET `version` = `version` + 1';
 		log('Running update ' + nextVersionFile + ' on database...');
-		db.query(query).then((data) => {
+		db.query(query).then(() => {
 			upgradeStep(nextVersion, files, callback);
 		}, (err) => {
 			return callback(err);
