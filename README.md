@@ -35,7 +35,7 @@ const upgradeConfig = {
 
 	// Path where the SQL files are located
 	// Optional, default: './database'
-	filePath: './my-sql-files'
+	path: './my-sql-files'
 };
 
 upgrade(upgradeConfig).then(function(upgraded) {
