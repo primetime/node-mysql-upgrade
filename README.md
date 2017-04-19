@@ -1,8 +1,10 @@
 # MySQL Upgrade
+[![npm](https://img.shields.io/npm/v/mysql-upgrade.svg)]()
+
 A simple MySQL database upgrade module based on plain SQL files. For developers who don't use an ORM like Sequelize, but still want to have a `database.sync();` functionality.
 
 ```
-npm install mysql-upgrade
+npm install --save mysql-upgrade
 ```
 
 ## Requirements
@@ -36,7 +38,7 @@ const upgradeConfig = {
 	filePath: './my-sql-files'
 };
 
-upgradeDb(upgradeConfig).then(function(upgraded) {
+upgrade(upgradeConfig).then(function(upgraded) {
 	console.log(upgraded);
 	// { oldVersion: 0, newVersion: 1 }
 })
