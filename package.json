@@ -1,6 +1,6 @@
 {
   "name": "mysql-upgrade",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple MySQL database upgrade module based on plain SQL files",
   "author": "Wouter Buckens <wouter.buckens@primetime.be>",
   "license": "MIT",
