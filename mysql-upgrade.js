@@ -39,7 +39,7 @@ async function createVersionTable() {
 	query.push('INSERT INTO ' + db.connection.escapeId(tableName) + ' SET `version` = 0;');
 
 	let result = await db.query(query.join(' '));
-	return result[0][0];
+	return 0;
 }
 
 // Gets the current database version
