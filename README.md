@@ -1,5 +1,5 @@
 # MySQL Upgrade
-[![npm](https://img.shields.io/npm/v/mysql-upgrade.svg)]()
+[![npm](https://img.shields.io/npm/v/mysql-upgrade.svg)](https://www.npmjs.com/package/mysql-upgrade)
 
 A simple MySQL database upgrade module based on plain SQL files. For developers who don't use an ORM like Sequelize, but still want to have a `database.sync();` functionality.
 
